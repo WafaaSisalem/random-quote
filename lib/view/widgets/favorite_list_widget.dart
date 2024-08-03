@@ -34,7 +34,6 @@ class _FavoriteListWidgetState extends ConsumerState<FavoriteListWidget> {
   }
 
   QuoteWidget buildQuoteWidget(int index, BuildContext context) {
-    print(index);
     return QuoteWidget(
         translation: Align(
           alignment: Alignment.centerRight,
