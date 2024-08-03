@@ -7,10 +7,10 @@ import '../../providers/img_path_provider.dart';
 import '../../providers/quote_provider.dart';
 import '../../providers/translation_provider.dart';
 import '../../utils/constants.dart';
-import 'card_widget.dart';
+import 'quote_widget.dart';
 
-class QuoteCardWidget extends ConsumerWidget {
-  const QuoteCardWidget({super.key});
+class HomeQuoteCardWidget extends ConsumerWidget {
+  const HomeQuoteCardWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

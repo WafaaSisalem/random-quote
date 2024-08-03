@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../models/quote_model.dart';
-import '../../providers/favorite_quotes_provider.dart';
 import '../widgets/favorite_list_widget.dart';
 
 class FavoriteScreen extends ConsumerStatefulWidget {
@@ -15,23 +12,15 @@ class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     print('build favorite');
-
-    AsyncValue<List<QuoteModel>> asyncfavQuotes =
-        ref.watch(favoriteQuotesProvider);
-    return asyncfavQuotes.when(
-        data: (List<QuoteModel> quotes) {
-          return Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Flexible(
-                child: FavoriteListWidget(quotes: quotes),
-              ),
-            ],
-          );
-        },
-        error: (error, stack) => const Text('can not get favorites'),
-        loading: () => const CircularProgressIndicator());
+    return const Column(
+      children: [
+        SizedBox(
+          height: 20,
+        ),
+        Flexible(
+          child: FavoriteListWidget(),
+        ),
+      ],
+    );
   }
 }

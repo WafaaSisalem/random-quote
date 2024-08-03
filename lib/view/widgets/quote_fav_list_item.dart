@@ -1,32 +1,23 @@
-import 'dart:typed_data';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:test_quote_api/view/widgets/card_widget.dart';
-
 import '../../models/quote_model.dart';
 import '../../providers/favorite_quotes_provider.dart';
 import '../../providers/quote_provider.dart';
 import '../../providers/translation_provider.dart';
 import '../../utils/constants.dart';
+import 'quote_widget.dart';
 
-class QuoteListItem extends ConsumerWidget {
+class QuoteFavListItem extends ConsumerWidget {
   final QuoteModel quote;
-  // final VoidCallback onFavoritePressed;
-  // final Function(Uint8List) onSharePressed;
 
-  const QuoteListItem({
-    Key? key,
+  const QuoteFavListItem({
+    super.key,
     required this.quote,
-    // required this.onFavoritePressed,
-    // required this.onSharePressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isTranslationSide = ref.watch(translationStateProvider(quote.id));
-
     return QuoteWidget(
       translation: Align(
         alignment: Alignment.centerRight,

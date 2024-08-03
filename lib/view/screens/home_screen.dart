@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_quote_api/providers/quote_provider.dart';
 import '../widgets/gridview_widget.dart';
-import '../widgets/quote_card_widget.dart';
+import '../widgets/home_quote_card_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,7 @@ class HomeScreen extends ConsumerWidget {
             const SizedBox(
               height: 25,
             ),
-            const QuoteCardWidget(),
+            const HomeQuoteCardWidget(),
             const SizedBox(
               height: 50,
             ),
