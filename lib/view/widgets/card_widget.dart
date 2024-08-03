@@ -7,8 +7,8 @@ import 'package:widgets_to_image/widgets_to_image.dart';
 import '../../models/quote_model.dart';
 
 // ignore: must_be_immutable
-class CardWidget extends StatelessWidget {
-  CardWidget({
+class QuoteWidget extends StatelessWidget {
+  QuoteWidget({
     super.key,
     required this.quote,
     required this.onSharePressed,

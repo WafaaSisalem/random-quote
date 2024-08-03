@@ -14,11 +14,11 @@ class FavoriteScreen extends ConsumerStatefulWidget {
 class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
-    print('rebuilding');
+    print('build favorite');
 
-    AsyncValue<List<QuoteModel>> asyncQuotes =
+    AsyncValue<List<QuoteModel>> asyncfavQuotes =
         ref.watch(favoriteQuotesProvider);
-    return asyncQuotes.when(
+    return asyncfavQuotes.when(
         data: (List<QuoteModel> quotes) {
           return Column(
             children: [

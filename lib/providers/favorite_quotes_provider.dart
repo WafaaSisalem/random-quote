@@ -1,15 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:test_quote_api/data/api_helper.dart';
+import 'package:test_quote_api/providers/quote_provider.dart';
 
 import '../data/db_helper.dart';
 import '../models/quote_model.dart';
 import '../utils/constants.dart';
+import 'img_path_provider.dart';
+import 'translation_provider.dart';
 
 part 'favorite_quotes_provider.g.dart';
 
 final isFavoriteProvider = StateProvider<bool>((ref) => false);
-final scrollFavPos = StateProvider<double>((ref) => 0.0);
 
 @Riverpod(keepAlive: true)
 class FavoriteQuotes extends _$FavoriteQuotes {
@@ -49,7 +51,20 @@ class FavoriteQuotes extends _$FavoriteQuotes {
     });
   }
 
-  onFavoritePressed(QuoteModel quote) async {
+  onFavoritePressed() async {
+    ref.read(isFavoriteProvider.notifier).update((state) {
+      return !state;
+    });
+
+    AsyncValue translation = ref.read(translationProvider);
+    String bgPath = ref.read(selectedImagePathProvider);
+    AsyncValue<QuoteModel> asyncQuote = ref.read(randomQuoteProvider);
+
+    //we check if we have translation then we add it to the quote then we add
+    //the quote to the favorite with the translation
+    QuoteModel quote = asyncQuote.value!
+        .copyWith(translation: translation.value, image: bgPath);
+    //////////add the new quote with new translation and bgpath to favorite
     if (ref.read(isFavoriteProvider)) {
       if (quote.translation.isEmpty ||
           quote.translation == Constants.cantGetTrans) {

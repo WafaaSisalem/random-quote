@@ -1,12 +1,11 @@
+import 'package:esys_flutter_share_plus/esys_flutter_share_plus.dart';
 import 'package:test_quote_api/models/quote_model.dart';
 import 'package:test_quote_api/providers/favorite_quotes_provider.dart';
 import 'package:test_quote_api/providers/translation_provider.dart';
+import 'package:test_quote_api/utils/constants.dart';
 import '../data/api_helper.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
 part 'quote_provider.g.dart';
-
-// final isSharingState = StateProvider<bool>((ref) => false);
 
 @Riverpod(keepAlive: true)
 class RandomQuote extends _$RandomQuote {
@@ -30,5 +29,14 @@ class RandomQuote extends _$RandomQuote {
     ref.invalidate(translationProvider);
     ref.read(translatePressedProvider.notifier).state = false;
     ref.read(isFavoriteProvider.notifier).state = false;
+  }
+
+  onShare(bytes, QuoteModel quote) async {
+    await Share.file('quote image', 'quote.png', bytes, 'image/png',
+        text: quote.translation.isNotEmpty
+            ? quote.translation == Constants.cantGetTrans
+                ? ''
+                : quote.translation
+            : quote.content);
   }
 }
