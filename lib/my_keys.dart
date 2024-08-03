@@ -1,2 +1,2 @@
-const apiKey = 'AIzaSyBoCWulOwcOkzP2745ei0OsbFv9lQWmQQk';
+const apiKey = 'AIzaSyCoXcHsJyj74RbGiWQiiuok9nFVtOozgro';
 const unsplashKey = 'wywv-_4M1a2a9eUsdsQOFlUseLREhcGMrPbm3QzZC84';

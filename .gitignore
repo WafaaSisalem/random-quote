@@ -44,7 +44,13 @@ app.*.map.json
 
 #lib folder
 /lib/test
-/lib/apikey.dart
+/lib/my_keys.dart
+/lib/models/quote_model.freezed.dart
+/lib/providers/favorite_quotes_provider.g.dart
+/lib/providers/img_path_provider.g.dart
+/lib/providers/quote_provider.g.dart
+/lib/providers/translation_provider.g.dart
+
 # web mac ios windows
 /web
 /macos
