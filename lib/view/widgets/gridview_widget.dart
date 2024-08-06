@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,8 +46,11 @@ class BackgroundGridWidget extends ConsumerWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                                image: NetworkImage(
+                                image: CachedNetworkImageProvider(
                                   data[index],
+                                  errorListener: (p0) {
+                                    //you can handle the error here or just print cant load image
+                                  },
                                 ),
                                 fit: BoxFit.cover)),
                       ),
@@ -55,24 +59,28 @@ class BackgroundGridWidget extends ConsumerWidget {
                   itemCount: 10,
                 ),
             error: (error, stackTrace) => Center(
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Cannot load images, ',
-                      children: [
-                        TextSpan(
-                          text: 'try again!',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Theme.of(context).colorScheme.primary),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              ref.invalidate(imgsPathsProvider);
-                            },
+                  child: imgsPathsAsyncValue.isLoading
+                      ? const CircularProgressIndicator()
+                      : RichText(
+                          text: TextSpan(
+                            text:
+                                'Cannot load images, check your internet and ',
+                            children: [
+                              TextSpan(
+                                text: 'try again!',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    ref.invalidate(imgsPathsProvider);
+                                  },
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
                 ),
             loading: () => const Center(child: CircularProgressIndicator())),
       )

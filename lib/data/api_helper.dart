@@ -11,19 +11,38 @@ class ApiHelper {
   static const String quoteApiUrl = 'https://api.quotable.io';
   static const String unsplashApiUrl = 'https://api.unsplash.com/photos/random';
   static const String unsplashAccessKey = unsplashKey;
+
+  List<String> devideQuote(String quote) {
+    List<String> splittedQuote = [];
+    int i = 0;
+    while (i < quote.length) {
+      int j = i;
+      while ((j < quote.length) && (quote[j] != ' ')) {
+        j++;
+      }
+      splittedQuote.add(quote.substring(i, j));
+      i = j + 1;
+    }
+    List<String> finalList = [];
+    for (int k = 0; k < splittedQuote.length - 1; k++) {
+      finalList.add('${splittedQuote[k]} ${splittedQuote[k + 1]}');
+    }
+    return finalList;
+  }
+
 ////////////////////////////////RANDOM IMAGE ////////////////////
   Future<List<String>> fetchRandomImages(String quoteText) async {
-    List<String> words =
-        quoteText.replaceAll(RegExp(r'[^\w\s]'), '').split(' ');
-    // Join the words with commas
+    // // Split the quote text into words
+    // List<String> words =
+    //     quoteText.replaceAll(RegExp(r'[^\w\s]'), '').split(' ');
+    // // Join the words with commas to fit in the request
+    // String result = words.join(',');
+    List<String> words = devideQuote(quoteText);
     String result = words.join(',');
-
-    // const query = 'dark,moon,stars,night,galaxy,inspiration,lights';
-
+    print(words);
     try {
       Response response = await dio.get(
         '$unsplashApiUrl?count=10&query=$result',
-        // '$unsplashApiUrl?count=10&query=$query',
         options:
             Options(headers: {'Authorization': 'Client-ID $unsplashAccessKey'}),
       );
@@ -44,15 +63,17 @@ class ApiHelper {
     String url = '$quoteApiUrl/random?maxLength=80';
     try {
       Response response = await dio.get(url);
+      if (response.statusCode == 200) {
+        Map<String, dynamic> data = response.data;
 
-      Map<String, dynamic> data = response.data;
-
-      return data;
+        return data;
+      } else {
+        throw Exception('Failed to load a quote');
+      }
       // ignore: unused_catch_clause
     } on DioException catch (e) {
-      //TODO: handle error
+      throw Exception('Failed to load a quote');
     }
-    return <String, dynamic>{};
   }
 
   getQuoteById(String id) async {

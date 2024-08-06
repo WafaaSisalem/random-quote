@@ -14,7 +14,7 @@ class Constants {
   static const String defaultTranslation =
       'ستواجه العديد من الهزائم في الحياة، لكن لا تسمح لنفسك أبدًا بالهزيمة.';
   static const String cantGetTrans =
-      'لا يمكن الحصول على الترجمة، الرجاء المحاولة مرة اخرى في وقت لاحق';
+      'لا يمكن الحصول على الترجمة لهذا الاقتباس، نعتذر عن هذا الخطأ :(';
   // static const String cantGetTrans =
   //     'Can not get the translation, please try again later';
   static const String loading = 'loading...';

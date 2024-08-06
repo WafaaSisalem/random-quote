@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -41,6 +42,10 @@ class HomeQuoteCardWidget extends ConsumerWidget {
               : Image.network(
                   bgPath,
                   fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    Constants.defaultImagePath,
+                    fit: BoxFit.cover,
+                  ),
                 ),
           onSharePressed: (bytes) async {
             ref
@@ -73,14 +78,40 @@ class HomeQuoteCardWidget extends ConsumerWidget {
                 );
               },
               error: (error, stack) {
-                return const Text(
+                return Text(
                   Constants.cantGetTrans,
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      height: 1.7,
+                      fontFamily: 'Expo',
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500),
                   textDirection: TextDirection.rtl,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                 );
               },
               loading: () => const CircularProgressIndicator()));
     }, error: (error, stack) {
-      return const Text('Something went wrong, try again!');
+      return asyncQuote.isLoading
+          ? const CircularProgressIndicator()
+          : RichText(
+              text: TextSpan(
+                text: 'Cannot load a quote, check your internet and ',
+                children: [
+                  TextSpan(
+                    text: 'try again!',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Theme.of(context).colorScheme.primary),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        ref.invalidate(randomQuoteProvider);
+                      },
+                  ),
+                ],
+              ),
+            );
     }, loading: () {
       return const CircularProgressIndicator();
     });

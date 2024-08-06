@@ -50,6 +50,7 @@ app.*.map.json
 /lib/providers/img_path_provider.g.dart
 /lib/providers/quote_provider.g.dart
 /lib/providers/translation_provider.g.dart
+/lib/providers/connectivity_provider.g.dart
 
 # web mac ios windows
 /web
