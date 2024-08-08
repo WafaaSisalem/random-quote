@@ -60,7 +60,7 @@ class ApiHelper {
 
   //////////////////////////////RANDOM QUOTE //////////////////////
   Future<Map<String, dynamic>> fetchRandomQuote() async {
-    String url = '$quoteApiUrl/random?maxLength=80';
+    String url = '$quoteApiUrl/random?maxLength=78';
     try {
       Response response = await dio.get(url);
       if (response.statusCode == 200) {
@@ -93,7 +93,14 @@ class ApiHelper {
     //   throw AssertionError('api key is not set');
     // }
     try {
-      final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
+      final safetySettings = [
+        SafetySetting(HarmCategory.harassment, HarmBlockThreshold.none),
+        SafetySetting(HarmCategory.hateSpeech, HarmBlockThreshold.none),
+        SafetySetting(HarmCategory.dangerousContent, HarmBlockThreshold.none),
+        SafetySetting(HarmCategory.sexuallyExplicit, HarmBlockThreshold.none),
+      ];
+      final model = GenerativeModel(
+          model: 'gemini-pro', apiKey: apiKey, safetySettings: safetySettings);
 
       final content = [Content.text(' ما هو ترجمة هذا الاقتباس $text')];
 

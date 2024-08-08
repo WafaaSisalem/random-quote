@@ -53,6 +53,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../providers/connectivity_provider.dart';
 import 'favorite_screen.dart';
@@ -109,9 +110,12 @@ class _NavigationBarScreenState extends ConsumerState<NavigationBarScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'No internet connection',
+                  const Text(
+                    'Check your internet connection,\n then try again!',
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
                   ),
+                  Lottie.asset('assets/json/internet.json', width: 200),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
