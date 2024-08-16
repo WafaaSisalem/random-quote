@@ -39,7 +39,6 @@ class ApiHelper {
     // String result = words.join(',');
     List<String> words = devideQuote(quoteText);
     String result = words.join(',');
-    print(words);
     try {
       Response response = await dio.get(
         '$unsplashApiUrl?count=10&query=$result',

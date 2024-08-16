@@ -70,3 +70,5 @@ build/
 app/
 # Local configuration file (sdk path, etc)
 local.properties
+# upload key 
+android/key.properties

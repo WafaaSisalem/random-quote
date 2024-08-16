@@ -11,7 +11,6 @@ class FavoriteScreen extends ConsumerStatefulWidget {
 class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
-    print('build favorite');
     return const Column(
       children: [
         SizedBox(

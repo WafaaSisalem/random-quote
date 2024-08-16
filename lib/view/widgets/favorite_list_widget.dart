@@ -13,7 +13,6 @@ class FavoriteListWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('build favorite list widget');
     AsyncValue asyncFavQuotes = ref.watch(favoriteQuotesProvider);
     return asyncFavQuotes.when(
         data: (quotes) => PageStorage(
