@@ -1,4 +1,4 @@
-# Project Name
+# Quoty for Today app
 
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 
@@ -14,16 +14,14 @@
 
 ## Overview
 
-Briefly describe what your project does and its purpose. Mention the key objectives and what problems it solves.
-
-Example:
-> **Daily Tracker** is a simple yet powerful app built using Flutter, designed to help users track their daily habits and tasks. The app features intuitive UI and offline functionality, making it accessible at any time.
+> **Quoty for Today** is a simple app built using Flutter, designed to help use generate a random quote for today.
 
 ## Features
-- Mention the main features of your app
-- Feature 1 (e.g., "User Authentication with Firebase")
-- Feature 2 (e.g., "Dark and Light Themes")
-- Feature 3 (e.g., "Offline Support")
+- Get a random quote for today
+- Translate your quote to Arabic
+- Set a background for your quote 
+- Save your favorite quotes
+- Share your quote to others
 
 ## Installation
 
