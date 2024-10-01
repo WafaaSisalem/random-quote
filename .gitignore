@@ -64,10 +64,7 @@ bin/
 gen/
 out/
 
-# Gradle files
-gradle/
-build/
-app/
+
 # Local configuration file (sdk path, etc)
 local.properties
 # upload key 
