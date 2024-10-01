@@ -8,7 +8,7 @@ class ApiHelper {
   ApiHelper._();
   static ApiHelper apiHelper = ApiHelper._();
   Dio dio = Dio();
-  static const String quoteApiUrl = 'https://api.quotable.io';
+  static const String quoteApiUrl = 'http://api.quotable.io';
   static const String unsplashApiUrl = 'https://api.unsplash.com/photos/random';
   static const String unsplashAccessKey = unsplashKey;
 
