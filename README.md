@@ -1,16 +1,17 @@
 # Quoty for Today app
+![App Features](https://drive.google.com/uc?id=1X-q0PikmF0Ttux2X77Gu43zanDHD-WaI)
 
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
+
+Get Quoty for Today from the Amazon Appstore. Check it out
+[Install the App on Amazon Store](https://www.amazon.com/dp/B0DFXDL2CZ/ref=apps_sf_sta)
 
 ## Table of Contents
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Screenshots](#screenshots)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Contact](#contact)
+4. [Contributing](#contributing)
+5. [Contact](#contact)
 
 ## Overview
 
@@ -58,4 +59,15 @@ To run this project locally, follow these steps:
    
    ```bash
    flutter run
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you would like to help improve this project.
+
+## Contact
+
+If you have any questions or need further information, feel free to reach out:
+
+- **Email**: [wafaaiyadsisalem@gmail.com](mailto:wafaaiyadsisalem@gmail.com)
+- **GitHub**: [WafaaSisalem](https://github.com/WafaaSisalem)
 
