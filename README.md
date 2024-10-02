@@ -1,10 +1,11 @@
 # Quoty for Today app
-![App Features](https://drive.google.com/uc?id=1X-q0PikmF0Ttux2X77Gu43zanDHD-WaI)
-
-[![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 
 Get Quoty for Today from the Amazon Appstore. Check it out
 [Install the App on Amazon Store](https://www.amazon.com/dp/B0DFXDL2CZ/ref=apps_sf_sta)
+
+![App Features](https://drive.google.com/uc?id=1X-q0PikmF0Ttux2X77Gu43zanDHD-WaI)
+
+[![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 
 ## Table of Contents
 1. [Overview](#overview)
